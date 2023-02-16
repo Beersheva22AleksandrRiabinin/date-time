@@ -3,6 +3,7 @@ package telran.time;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.DayOfWeek;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -50,9 +51,16 @@ class DateTimeTests {
 //				System.out.println(ZonedDateTime.now(ZoneId.of(zone)));			
 //			}
 //		}
+		Instant currentTime = Instant.now();
 		ZoneId.getAvailableZoneIds().stream()
-									.filter(x -> x.contains("Canada"))
-									.forEach(x -> System.out.println(ZonedDateTime.now(ZoneId.of(x))));
+									.filter(tz -> tz.toLowerCase().contains("canada"))
+									.forEach(tz -> System.out.printf("%s %s\n", 
+											LocalDateTime.ofInstant(currentTime, ZoneId.of(tz)).
+											format(DateTimeFormatter.ofPattern("YYYY-MM-dd HH:mm:ss")), tz));
+		
+//		ZoneId.getAvailableZoneIds().stream()
+//									.filter(x -> x.contains("Canada"))
+//									.forEach(x -> System.out.println(ZonedDateTime.now(ZoneId.of(x))));
 	}
 	
 	@Test
