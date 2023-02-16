@@ -100,7 +100,7 @@ public class PrintCalendar {
 
 	private static int[] getMonthYearArgs(String[] args) throws Exception {
 
-		return new int[] { getMonthArgs(args), getYearArgs(args), getFirstCalendarDayArgs(args) };
+		return new int[] { getMonthArgs(args), getYearArgs(args), getStartingDayArgs(args) };
 	}
 
 	private static int getYearArgs(String[] args) throws Exception {
@@ -130,7 +130,7 @@ public class PrintCalendar {
 		}
 	}
 	
-	private static int getFirstCalendarDayArgs (String [] args) throws Exception { 	
+	private static int getStartingDayArgs (String [] args) throws Exception { 	
 		try {
 			if (args.length < 3) {
 				return 1;
